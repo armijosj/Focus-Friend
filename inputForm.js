@@ -324,7 +324,6 @@ class chatBox {
             // messages[i].style.backgroundColor = "rgb(" + (msgClr - 30) + "," + (msgClr - 4) + "," + (msgClr - 2) + ")"; // blue-ish
             messages[i].style.backgroundColor = "rgb(" + (msgClr - 5) + "," + (msgClr - 5) + "," + (msgClr - 5) + ")"; // grey
             msgClr = min + (i/messages.length) * (max-min);
-            console.log(i + " " + msgClr); //debugging
         }
     }
 }
