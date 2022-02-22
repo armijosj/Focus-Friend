@@ -215,7 +215,7 @@
                     <div id="dateGroup">
                         <p id="date" class="trends__currDate">"Insert Date Here"</p>
                         <div class="popup">
-                            <button type="button" id="datePickerButton" onclick="toggleCalendar()"><i class="fa fa-calendar"></i></button>
+                            <button type="button" id="datePickerButton" onclick="toggleCalendar()"><i class="fas fa-calendar-alt fa-lg" id="calendar"></i></button>
                                 <span class="popuptext" id="myPopup"> 
                                     <span class="close" onclick="toggleCalendar()">&times;</span>
                                     <div id="datepicker"></div>
@@ -235,11 +235,11 @@
                 <div class="trends__summaryBox"> 
                     <table id="summaryBox">
                         <tr>
-                          <td>Total Study Time:</td>
+                          <td>Total Focus Time:</td>
                           <td>44 hours</td>
                         </tr>
                         <tr>
-                            <td>Average Daily Study Time: </td>
+                            <td>Average Daily Focus Time: </td>
                             <td>6.3 hours</td>
                         </tr>
                       </table>
@@ -272,37 +272,43 @@
                 </nav>
                 <div class="allItems">
                 <div class="myItems">
-                    <div class="featureTitle"><h2>Background:</h2></div>
+                    <div class="featureTitle"><h2>Environments:</h2></div>
                     <ul class="myItems__feature">
-                        <li class="featureItem bg1 equippedItem"><img src="images/companion-bg-1.jpg" alt=""></li>
+                        <li class="featureItem bg1 equippedItem"><img src="images/companion-bg-1.jpg" alt=""><div class="priceTagEq">Equipped</div></li>
                         <li class="featureItem bg2"><img src="images/companion-bg-2.jpg" alt=""></li>
                         <li class="featureItem bg3"><img src="images/companion-bg-3.jpg" alt=""></li>
                     </ul>
-                    <div class="shopTitle"><h2>General:<span> (Unavailable)</span></h2></div>
+                    <div class="shopTitle"><h2>Clothing:</h2></div>
                     <ul class="shopItems__general">
                         <li class="shopItem"><img src="images/companion-clothing-1.JPG" alt=""></li>
+                    </ul>
+                    <div class="shopTitle"><h2>Furnishings:</h2></div>
+                    <ul class="shopItems__general">
                         <li class="shopItem"><img src="images/companion-gear-2.jpg" alt=""></li>
                         <li class="shopItem"><img src="images/companion-gear-6.jpg" alt=""></li>
                         <li class="shopItem"><img src="images/companion-gear-3.jpg" alt=""></li>
                     </ul>
                 </div>
                 <div class="shopItems">
-                    <div class="featureTitle"><h2>Background:</h2></div>
+                    <div class="featureTitle"><h2>Environments:</h2></div>
                     <ul class="myItems__feature">
-                        <li class="featureItem bg4"><img src="images/companion-bg-4.jpg" alt=""></li>
-                        <li class="featureItem bg5"><img src="images/companion-bg-5.jpg" alt=""></li>
-                        <li class="featureItem bg6"><img src="images/companion-bg-6.jpg" alt=""></li>
+                        <li class="featureItem bg4"><img src="images/companion-bg-4.jpg" alt=""><div class="priceTag">$150</div></li>
+                        <li class="featureItem bg5"><img src="images/companion-bg-5.jpg" alt=""><div class="priceTag">$130</div></li>
+                        <li class="featureItem bg6"><img src="images/companion-bg-6.jpg" alt=""><div class="priceTag">$200</div></li>
                     </ul>
-                    <div class="shopTitle"><h2>General:<span> (Unavailable)</span></h2></div>
+                    <div class="shopTitle"><h2>Clothing:</h2></div>
                     <ul class="shopItems__general">
-                        <li class="shopItem"><img src="images/companion-clothing-3.JPG" alt=""></li>
-                        <li class="shopItem"><img src="images/companion-gear-1.jpg" alt=""></li>
-                        <li class="shopItem"><img src="images/companion-clothing-2.JPG" alt=""></li>
-                        <li class="shopItem"><img src="images/companion-gear-4.jpg" alt=""></li>
-                        <li class="shopItem"><img src="images/companion-clothing-4.JPG" alt=""></li>
-                        <li class="shopItem"><img src="images/companion-gear-5.jpg" alt=""></li>
-                        <li class="shopItem"><img src="images/companion-clothing-5.JPG" alt=""></li>
-                        <li class="shopItem"><img src="images/companion-clothing-6.JPG" alt=""></li>
+                        <li class="shopItem"><img src="images/companion-clothing-3.JPG" alt=""><div class="priceTag">$40</div></li>
+                        <li class="shopItem"><img src="images/companion-clothing-2.JPG" alt=""><div class="priceTag">$50</div></li>
+                        <li class="shopItem"><img src="images/companion-clothing-4.JPG" alt=""><div class="priceTag">$60</div></li>
+                        <li class="shopItem"><img src="images/companion-clothing-5.JPG" alt=""><div class="priceTag">$25</div></li>
+                        <li class="shopItem"><img src="images/companion-clothing-6.JPG" alt=""><div class="priceTag">$55</div></li>
+                    </ul>
+                    <div class="shopTitle"><h2>Furnishings:</h2></div>
+                    <ul class="shopItems__general">
+                        <li class="shopItem"><img src="images/companion-gear-1.jpg" alt=""><div class="priceTag">$50</div></li>
+                        <li class="shopItem"><img src="images/companion-gear-4.jpg" alt=""><div class="priceTag">$60</div></li>
+                        <li class="shopItem"><img src="images/companion-gear-5.jpg" alt=""><div class="priceTag">$30</div></li>
                     </ul>
                 </div>
                 </div>
@@ -366,7 +372,12 @@
                 <div class="settings__item">
                     <!-- ACCOUNT SETTINGS -->
                     <div class="settings__item settings__item--account">
-                        <p id="account">Account</p>
+                        <p id="account">Account
+                            <button class="account__warning">
+                                <span class="account-tooltip">Account is a non-functional feature</span>
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </button>
+                        </p>
                         <div class="account__settings account__settings--profile">
                             <span><i class="fas fa-user-circle fa-5x" style="color: black;" ></i></span>
                             <div class="account__text">
@@ -400,7 +411,12 @@
                     <div class="settings__item settings__item--advance">
                         <p id="advance">Advance</p> 
                         <div class="advance__settings advance__settings--dark__mode">
-                            <p id="dark__mode">Dark Mode</p> 
+                            <p id="dark__mode">Dark Mode
+                                <button class="darkmode__warning">
+                                    <span class="darkmode-tooltip">Dark mode is a non-functional feature</span>
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </button>
+                            </p> 
                             <div class="switchWraper"> 
                                 <label class="switch">
                                     <input id="toggleDarkMode" type="checkbox">
