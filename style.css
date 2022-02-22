@@ -1,0 +1,2072 @@
+/* CSS Reset Setting
+Reference: https://meyerweb.com/eric/tools/css/reset/ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li, span,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+b {
+    font-weight: bold;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Clear anchor tag properties */
+a:link {
+    text-decoration: inherit;
+    color: inherit;
+}
+a:visited {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+:root {
+    /* Color Setting Manual 
+        bg: Background
+        b: Border
+        c: Color
+        sectionA: include AppName/MainPage
+        sectionB: include Goals, Report, Shop, Inventory and Settings
+    */
+    --bg-background: rgba(0, 0, 0, 0.735);
+    --b-navigationBar: rgba(128, 128, 128, 0.434);
+    
+    --bg-sectionA:black;
+    --c-sectionA: white;
+    
+    --bg-sectionB: rgb(97, 97, 97);
+    --c-sectionB: white;
+
+    --bg-mainMenu: transparent;
+    --b-mainMenu: transparent;
+
+    --c-button: rgba(128, 128, 128, 0.5); 
+    --c-buttonHover: rgba(128, 128, 128, 0.7);
+    --c-buttonText: white;
+
+    --bg-SectionBDisplay: white;
+    --b-SectionBDisplay: transparent;
+
+	--c-chatBubble: rgb(165, 206, 230);
+
+	--inventoryBoxes: rgb(141, 141, 141);
+
+	--accentColor-first: rgb(140, 202, 89);
+	
+    --ff-TimerFont : 'Roboto', sans-serif;
+    --b-TimerBox: transparent;
+
+	--borderRadiusUniversal: 8px;
+
+    --bg-datePicker: rgba(128, 128, 128); 
+    --c-datePickerNumbers: black; 
+}
+
+body {
+    /* Centring the elements */
+    max-width: 90%;
+    margin: 0 auto;
+    color: white;
+    background-color: var(--bg-background);
+}
+
+/* NAVIGATION BAR STYLING */
+
+.navBar {
+    /* maximum height of NavBar */
+    height:60px;
+
+    display: flex;
+    border-bottom: 4px solid var(--b-navigationBar);
+    margin: 0 auto;
+    margin-bottom: 0%;
+}
+
+.navBar__sectionA {
+    /* Percentage of area cover by section in NavBar */
+    width: 35%;
+    height: 100%;
+
+    color: var(--c-sectionA);
+    /* Centring the elements */
+    display: flex;
+    align-items: center;
+}
+
+.navBar__sectionB {
+    /* Percentage of area cover by section in NavBar */
+    width: 65%;
+    height: 100%;
+
+    color: var(--c-sectionB);
+    /* Centring and moving elements to right side */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.navBar__sectionA h3 , .navBar__item{
+    /* Adding Style to elements of NavBar*/
+    /* border: 1px solid grey; */
+    padding:10px 12px;
+    border-radius: var(--borderRadiusUniversal);
+    cursor: pointer;
+	font-family: var(--ff-TimerFont);
+}
+
+.navBar__sectionA h3 {
+    background-color: var(--bg-sectionA);
+}
+
+.navBar__item {
+    background-color: var(--bg-sectionB);
+}
+
+.navBar__item:not(:last-child) {
+    /* Spacing on the right of the SectionB elements */
+    margin-right: 8px;
+}
+
+.navBar__item i {
+    /* Spacing between icon and text */
+    padding-right: 2px;
+}
+
+/* fixing row format for section B elements */
+.navBar__item--report {
+    display: flex;
+    flex-direction: row;
+}
+
+.navBar__item--inventory {
+    display: flex;
+    flex-direction: row;
+}
+
+.navBar__item--settings {
+    display: flex;
+    flex-direction: row;
+}
+
+.navBar__item--goals {
+    display: flex;
+    flex-direction: row;
+}
+
+.navBar__item--goals {
+    display: flex;
+    flex-direction: row;
+}
+
+/* MAIN ITEMS STYLING */
+
+.main__items {
+    width: 100%;
+    /* centring elements inside main items */
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+/* Styling main menu */
+
+.main__item--menu {
+
+    background-color: var(--bg-mainMenu);
+
+    /* height: 96%; */
+    width: 100%;
+
+    border-radius: var(--borderRadiusUniversal);
+    border: 4px solid var(--b-mainMenu);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* left and right box */
+.main__item--menu .rightBox, .main__item--menu .leftBox {
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+}
+
+.rightBox {
+    justify-content: flex-end;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track { 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(216, 216, 216);
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(216, 216, 216);
+  }
+
+
+.chatBox__msgBox {
+    float: left;
+    width: 90%;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 4px;
+}
+
+.chatMsgDate { 
+    display: flex;
+    flex-wrap: wrap;
+    color: rgba(245, 245, 245, 0.7);
+    font-size: 0.8em;
+    font-family: var(--ff-TimerFont);
+}
+
+/* 
+.goalForm {
+    border: 1px solid red;
+    color: black;
+    width: 80%;
+    height: 30%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.goalFormTimer {
+    width: 15%;
+    height: 20%;
+}
+
+.goalForm label{
+    margin-top: 5px;
+}
+
+.submitFormButton {
+    margin-top: 5px;
+} */
+
+/* chat box (within right box) */
+.chatBox {
+    width: 90%;
+    height: 78%;
+    /* border: 1px solid rgba(172, 172, 172, 0.4); */
+	overflow-y: scroll;
+    padding: 2%;
+    border-radius: var(--borderRadiusUniversal);
+	background-color: rgba(172, 172, 172, 0.25);
+}
+
+.buttonsBox {
+    /* border:3px solid rgb(172, 172, 172); */
+    /* padding: 2%; */
+    border-radius: var(--borderRadiusUniversal);
+    width: 90%;
+    height: 18%;
+	/* background-color: white; */
+    /* background-color: rgb(238, 238, 238); */
+}
+
+.chatBox button, #sessionFormSubmit, #breakFormSubmit, #goalFormSubmit {
+    cursor: pointer;
+}
+
+/* These are our chat bubbles - they appear when you click any of the chat input buttons.
+    (display: none; because it wont be showed initially.) */
+/* .createTask, .createGoal, .startBreak {
+    display: none;
+	position: relative;
+	font-family: 'Varela Round';
+    color: black;
+    margin: 2%;
+    background-color: var(--c-chatBubble);
+	border: 2px solid var(--c-chatBubble);
+	border-radius: 15px;
+	padding: 15px;
+	text-align: left;
+	margin-left: 15px;
+} */
+
+.welcome {
+    display: block;
+}
+
+.createTask, .createGoal, .startBreak {
+    display: none;
+}
+
+/* Little arrow for the chat bubble styling */
+.chatBubblePointer:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border-left: 0.7em solid transparent;
+	border-right: 0.7em solid var(--c-chatBubble);
+	border-top: 0.7em solid transparent;
+	border-bottom: 0.7em solid transparent;
+	margin-top: -0.7em;
+	margin-left: -24px;
+}
+
+/* Stylizing Input forms */
+.goalNameField, .goalTimeField, .breakDurationField, .taskNameField, .taskTimeField {
+    margin-bottom: 10%;
+}
+
+#timepicker-selectbox-goals, #timepicker-selectbox-break, #timepicker-selectbox-task {
+    width: 100%;
+	margin-top: 1%;
+}
+
+#gname, #tname {
+    width: 100%;
+	margin-top: 2%;
+}
+
+/* .createGoal button, .startBreak button, .createTask button {
+    height: auto;
+    width: auto;
+    font-size: x-small;
+    background-color: var(--c-button); 
+    border-radius: 5px;
+    color: var(--c-buttonText);
+    cursor: pointer; /* Pointer/hand icon
+} */
+
+.breakDurationField {
+    margin-top: 10%;
+}
+
+.breakDurationField {
+    margin-top: 10%;
+}
+
+/* Chat buttons */
+.chat-btn-group {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+    background-color: var(--c-buttonHover);
+}
+
+.btn-group {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: rgba(245, 245, 245, 0.8);
+    font-family: var(--ff-TimerFont);
+    font-weight: bold;
+}
+
+.addBtn, .startANewBtn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* border: 3px solid rgba(172, 172, 172); */
+    background-color: rgba(172, 172, 172, 0.25);
+    /* border: 1px solid green; */
+    padding: 2%;
+    border-radius: 5px;
+}
+
+.addBtn label, .startANewBtn label {
+    height: 25%;
+}
+
+.addBtn button, .SABgrp {
+    height: 50%;
+}
+
+.SABgrp button {
+    height: 100%;
+    width: 48%;
+}
+
+.addBtn {
+    width: 37%;
+    height: 100%;
+}
+
+.startANewBtn {
+    width: 60%;
+    height: 100%;
+}
+
+.btn-group button {
+    cursor: pointer;
+    /* height: 100%; */
+    /* width: 32.4%; */
+    background-color: rgb(200, 200, 200);
+    /* border: 1px solid green; */
+    border: 1.5px solid rgb(149, 149, 149);
+    border-radius: var(--borderRadiusUniversal);
+    color: black;
+    font-weight: bold;
+    cursor: pointer; /* Pointer/hand icon */
+    vertical-align: top;
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+    background-color: rgb(233, 233, 233);
+    color: rgb(65, 65, 65);
+}
+
+
+/* Disabled button */ 
+button:disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0.65;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+/* left box */
+.timerBox {
+    width: 100%;
+    height: 42%;
+
+    /* Alignment of timer in centre */
+    display: flex;
+    flex-wrap: wrap;
+
+    font-family: var(--ff-TimerFont);
+}
+
+/* Styling the timer */
+
+#timer {
+    color: black;
+    width: 76%;
+    height: 63%;
+    margin-top: 0.9%;
+    margin-right: 1%;
+    background-color: rgb(172, 172, 172);
+    border-radius: var(--borderRadiusUniversal);
+}
+
+#timer h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+
+    font-family: var(--ff-TimerFont);
+    font-size: 6.5em;
+    font-weight: bold;
+}
+
+.currentState {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 30%;
+}
+
+.currentState .timerSessionState {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 90%;
+    height: 80%;
+
+    font-family: var(--ff-TimerFont);
+    font-weight: bold;
+    border-radius: var(--borderRadiusUniversal);
+    border: 2px solid white;
+    background-color: white;
+}
+.TBBtext, .TBStext {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+}
+
+.TSSoverlay {
+    width:0%;
+    height: 100%;
+    background-color: rgb(172, 172, 172);
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	background-color:rgb(164, 206, 169);
+}
+
+.timerSessionState h2{
+
+    font-size: 1em;
+    color: black;
+}
+
+.timerBreakState h2 {
+    font-size: 1em;
+    color: rgb(172, 172, 172);
+}
+
+.timerBtngrp {
+    width: 23%;
+    height: 66%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.timerBtngrp #startStop, .timerBtngrp #skip {
+    width: 90%;
+    height: 45%;
+    font-size: 2em;
+    border-radius: var(--borderRadiusUniversal);
+    border: transparent;
+    background-color: rgb(172, 172, 172);
+    cursor: pointer;
+}
+
+.timerBtngrp #skip {
+    font-size: 2.3em;
+}
+
+#startStop:hover , #skip:hover{
+    background-color: var(--c-buttonHover);
+}
+
+.timerContent {
+    width: 99%;
+    height: fit-content;
+    margin-top: 1%;
+    background-color: rgb(172, 172, 172);
+    border-radius: var(--borderRadiusUniversal);
+}
+
+.timerContent h4 {
+    color: black;
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: var(--ff-TimerFont);
+}
+
+.currentGoal, .currentTask {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.currentTask {
+    padding-bottom: 13px;
+}
+
+.companionBox {
+    position: relative;
+    width: 99%;
+    margin-right: 1%;
+    margin-top: 0.5%;
+    height: 55%;
+    border: 4px solid rgb(172, 172, 172);
+    border-radius: var(--borderRadiusUniversal);
+    /* Alignment of companion in centre */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: contain;
+
+    background-image: url(images/companion-bg-1.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.companion {
+    max-height:100%;
+    overflow: hidden;
+    position: relative;
+
+    top: 65px;
+}
+
+/* Page Header for each page (includes title and back button) */
+.page__header {
+	height: 60px;
+	align-items: center;
+	display: flex;
+	color: black;
+	font-family: var(--ff-TimerFont);
+	padding: 5px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 10px;
+	border-radius: 4px;
+	border-bottom: 1px solid rgb(214, 214, 214);
+}
+.page__header__title {
+	font-weight: 700;
+	font-size: 30px;
+	margin: auto;
+}
+.page__backButton {
+	display:flex;
+	flex-direction: row;
+	font-size: 30px;
+	color: grey;
+	background-color: var(--bg-mainMenu);
+	cursor: pointer;
+	text-align: center;
+	border-radius: 6px;
+    border: none;
+    /* margin-right: 15px; */
+}
+
+.page__backButton:hover {
+    background-color: rgb(226, 226, 226);
+    color: rgb(78, 78, 78);
+}
+
+/* Stying the Trends page */ 
+.main__item .main__item--report {
+    vertical-align: top;
+    position: relative;
+    display: flex;
+}
+
+.trends__chart, .trends__summaryTitle, .trends__summaryBox, .trendsBar, .trends__dateNavBar {
+    font-family: var(--ff-TimerFont);
+    width: 93%; 
+}
+
+.trends__chart, .trendsBar, .trends__dateNavBar, .trends__summaryTitle, .trends__summaryBox {
+    margin: 0 auto;
+}
+
+.trends__chart, .trends__summaryBox {
+    /* border: 1px dotted rgba(128, 128, 128, 0.4); */
+}
+
+.trends__chart {
+    height: 55%; 
+    margin-bottom: 25px;
+}
+
+.trendsBar {
+    padding: 5px 0;
+    display: flex;
+    justify-content: right;
+}
+
+.trendsBar__items {
+    color: var(--c-sectionA);
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+.trendsBar__item--daily, .trendsBar__item--monthly,.trendsBar__item--weekly {
+    display: flex;
+    padding:10px 12px;
+    /* border-radius: var(--borderRadiusUniversal); */
+    cursor: pointer;
+    /* margin: 5px 0 0 7px;  */
+    background-color: var(--bg-sectionB);
+}
+
+.trendsBar__item--daily {
+    border-top-left-radius: var(--borderRadiusUniversal);
+    border-bottom-left-radius: var(--borderRadiusUniversal);
+    border-right: 2px solid black;
+}
+
+.trendsBar__item--monthly {
+    border-top-right-radius: var(--borderRadiusUniversal);
+    border-bottom-right-radius: var(--borderRadiusUniversal);
+    border-left: 2px solid black;
+}
+
+.trendsBar__item--daily, .trendsBar__item--monthly {
+    background-color: var(--bg-sectionB);
+}
+
+.trendsBar__item--weekly {
+    background-color: black;
+}
+
+.trends__dateNavBar {
+    height: 7.5%;
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.trends__dateNavBar button{
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.trends__currDate {
+    margin: 5px 5px; 
+    color: black;
+    white-space: nowrap;
+    width: 100%;
+    text-align: center;
+    font-size: 120%;
+    font-weight: bold;
+}
+
+#dateGroup { 
+    display: flex;
+    align-items: center;
+}
+
+.trends__summaryBox { 
+    height: 12.5%; 
+    /*Overflow-y:scroll; //uncomment if adding more summary data*/
+}
+
+.trends__summaryTitle { 
+    font-size: 120%;
+    background-color: rgb(93, 93, 93);
+    color: white;
+    padding: 5px 0px 5px 8px;
+    border-top-left-radius: var(--borderRadiusUniversal);
+    border-top-right-radius:  var(--borderRadiusUniversal);
+}
+
+.trends__chart--weekly, .trends__chart--daily, .trends__chart--monthly {
+    width:100%;
+    height:100%;
+    display: flex;
+}
+
+#summaryBox { 
+    border-collapse: collapse;
+    width: 100%;
+    color: black;
+}
+
+#summaryBox td, #summaryBox th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    background-color: white;
+}
+
+#summaryBox tr td:not(:first-child) {
+    column-width: 10em;
+    font-weight: bold;
+}
+  
+#summaryBox tr:nth-child(even){background-color: #f2f2f2;}
+  
+#summaryBox tr:hover {background-color: #ddd;}
+
+#prevButton, #nextButton{
+    width: 55px;
+    height: 35px;
+}
+
+/* Stying the Settings page */ 
+
+.settings__item {
+    font-family: var(--ff-TimerFont);
+    height: 90%;
+    width: 70%;
+    margin: auto;
+}
+
+.settings__item--account, .settings__item--notification, .settings__item--advance {
+    height: 30%;
+    width: 100%;
+    margin-top: 2%;
+    padding: 1%;
+}
+
+.settings__item:not(:last-child) {
+    border-bottom: 1px solid rgb(165, 164, 164);
+}
+
+#account, #notification, #advance {
+    font-size: x-large;
+    font-weight:var(--bg-sectionA);
+    color: #141516;
+    font-weight: bold;
+    text-decoration: underline;
+    justify-content: left;
+    margin-top: 2%;
+    margin-left: 3%;
+    width: 95%;
+}
+
+.account__settings, .notification__settings, .advance__settings {
+    height: 25%;
+    width: 70%;
+    margin-left: 10%;
+    margin-top: 3%;
+    position: relative;
+    display: flex;
+    
+    border-radius: 10px;
+    padding: 2px 4px;
+}
+
+
+.account__settings--profile{
+    height: 30%;
+    width: 90%;
+    height: 60%;
+}
+
+.account__text{
+    height: 90%;
+    width: 70%;
+    margin: auto;
+    padding: 2%;
+}
+
+#username{
+    font-size: x-large;
+    margin-top: 3%;
+    font-weight:var(--ff-TimerFont);
+    color: #141516;
+}
+
+#change__user{
+    font-size: medium;
+    text-decoration: underline rgb(117, 117, 117);
+    margin-top: 2%;
+    margin-left: 2%;
+    color: #555555;
+    cursor: pointer;
+}
+
+#sound, #volume, #dark__mode, #alert{
+    font-size: x-large;
+    font-weight:var(--c-chatBubble);
+    color: #141516;
+}
+
+.switchWraper, .slideContainer {
+    position: absolute;
+    margin-left: 90%;    
+}
+
+.slideContainer{
+    display: flex;
+    align-content: center;
+    margin-left:80%; 
+}
+
+
+/* Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+
+}
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+
+}
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+}
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  
+  /* Finish styling of Settings */
+
+/* Display none for all child element excent main menu as default */
+.trends__chart >:not(:first-child) {
+    display: none;
+}
+
+/* Styling for Goals page*/
+.goalsBody {
+    font-family: var(--ff-TimerFont);
+    padding: 2%;
+}
+
+/* for entire body of goals page */
+.goalsBody {
+    width: 98%;
+    height: 88%;
+    color: black;
+    margin-top: 1%;
+	flex-direction: column;
+}
+
+/* for each goal on goal page */
+.goalsBody .goal{
+    height: auto;
+    width: 100%;
+    margin: 1%;
+    margin-bottom: 4%;
+}
+
+/* for individual goal headers which includes the goal name and arrow down symbol */
+.goal-label  {
+    display: flex;
+    width: 98%;
+    font-size: large;
+    justify-content: space-between; 
+    padding: 1%;
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+/* change colour when hovering and clicking on goal label */
+.goal-label:hover {
+    background-color:rgb(209, 209, 209);
+}
+
+.goalsBody input:checked ~ label {
+    background-color: rgb(209, 209, 209);
+}
+
+/* for goal progress and goal percentage in goal label */
+.goalprogress {
+    display: flex;
+    color: black;
+    vertical-align: middle;
+    font-size: large;
+}
+
+/* for entire list of sessions for a goal on goals page*/
+.goalsBody ul {
+    display: none;
+    width: 98%;
+    justify-content: center;
+    background-color: var(--c-chatBubble);
+    padding: 2%;
+    margin-top: 0px;
+    border: 2px solid black;
+    border-top: 0px;
+    font-size: medium;
+    border-radius: 1px 1px 5px 5px;
+}
+
+/* for individual sessions in a goal's sessions list*/
+.goalsBody li {
+    display: flex;
+    font-size: medium;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.timeval {
+    direction: rtl; /* pushes task duration to the right hand side of task row */
+}
+
+.goalsBody input:checked ~ ul{
+    display: block; /* shows task list when goal label is clicked */
+}
+
+.goalsBody input {
+    display: none; /* gets rid of checkbox for input element*/
+}
+
+/* the bar that represents the actual progress (blue block) */
+.progressbar {
+    display: flex;
+    background-color: var(--c-chatBubble);
+    height: 100%;
+    border-radius: 5px;
+}
+
+/* outline of the progress bar (darker block) */
+.progressbar-container {
+    display: block;
+    justify-self: center;
+    width: 98%;
+    height: 18px;
+    outline-style: solid;
+    outline-color: black;
+    outline-width: 2px;
+    border-radius: 5px;
+    background-color: rgb(95, 95, 95);
+}
+
+/* adds dashed line in task lists */
+.goaltimespent {
+    border-top: 2px;
+    border-style: dashed;
+    padding-top: 2%;
+    margin-top: 2%;
+}
+
+/* .main__item--shop {
+}
+
+.trends__chart--daily {
+    width:100%;
+    height:100%;
+    display: none;
+  
+}
+
+.trends__chart--monthly {
+    width:100%;
+    height:100%;
+    display: none;
+    
+}
+
+/* Display none for all child element excent main menu as default */
+.trends__chart >:not(:first-child) {
+    display: none;
+}
+
+/* --------------- STYLING THE INVENTORY PAGE ------------------ */
+.inventory__page {
+	display: none;
+	flex-direction: column;
+	width: 93%;
+	height: 94%;
+	padding: 5px;
+	background-color: var(--bg-mainMenu);
+    font-family: var(--ff-TimerFont);
+	font-weight: 500;
+	margin: auto;
+}
+
+.inventory__featured {
+	height: 35%;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 5px;
+	background-color: var(--bg-mainMenu);
+	justify-content: space-between;
+    vertical-align: baseline;
+}
+
+.inventory__headline {
+	width: 100%;
+	height: 14%;
+	font-family: var(--ff-TimerFont);
+	color: black;
+	margin-left: 0;
+	border-radius: var(--borderRadiusUniversal);
+	background-color: var(--accentColor-first);
+}
+
+.inventory__featureBar {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-items: left;
+	justify-content: space-between;
+	padding-top: 4px;
+}
+
+.inventory__featureItem {
+	width: 49%;
+	height: 100%;
+	border-style: solid;
+	border-width: 1px;
+	border-color: var(--inventoryBoxes);
+	border-radius: var(--borderRadiusUniversal);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.inventory__categoryTitle {
+	height: 8%;
+	width: 100%;
+	color: black;
+	background-color: var(--accentColor-first);
+	border-radius: var(--borderRadiusUniversal);
+}
+
+.inventory__categories {
+	height: 50%;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 5px;
+	background-color: var(--bg-mainMenu);
+	justify-content: space-between;
+}
+
+.inventory__list {
+	height: 43%;
+	justify-items: left;
+	background-color: var(--bg-mainMenu);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-bottom: 10px;
+	padding-top: 4px;
+}
+
+.inventory__item {
+	height: 100%;
+	width: 32%;
+	border-style: solid;
+	border-width: 1px;
+	border-color: var(--inventoryBoxes);
+	border-radius: var(--borderRadiusUniversal);
+    color: black;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Inventory Owned Items tab. Hidden by default since we show the shop first. */
+#inventory__ownedItemsTab {
+	display: flex;
+	padding: 0;
+	padding-top: 5px;
+}
+
+#inventory__shopTab {
+	display: none;
+	padding: 0;
+	padding-top: 5px;
+}
+
+.owned {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.inventory__tabSelector {
+	width: 93%;
+	height: 10%;
+	display: flex;
+
+}
+
+.inventory__myItemsButton, .inventory__shopButton {
+	display: flex;
+    padding:10px 12px;
+    /* border-radius: var(--borderRadiusUniversal); */
+    cursor: pointer;
+    background-color: var(--bg-sectionB);
+}
+
+.inventory__myItemsButton {
+	background-color: black;
+    border-top-left-radius: var(--borderRadiusUniversal) ;
+    border-bottom-left-radius: var(--borderRadiusUniversal) ;
+}
+
+.inventory__shopButton {
+    border-top-right-radius: var(--borderRadiusUniversal) ;
+    border-bottom-right-radius: var(--borderRadiusUniversal) ;
+}
+
+.currency {
+    display: flex;
+    vertical-align: middle;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: var(--borderRadiusUniversal);
+    background-color: var(--b-navigationBar);
+}
+
+.cost{
+    display: flex;
+    color: black;
+    border-radius: 4px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+    width: max-content;
+    padding: 2%;
+    margin: 2%;
+    float: left;
+    font-size: smaller;
+    background-color: var(--accentColor-first);
+}
+
+.inventory__warning {
+	display:flex;
+	flex-direction: row;
+	font-size: 30px;
+	color: rgb(204, 54, 54);
+	background-color: var(--bg-mainMenu);
+	cursor: pointer;
+	text-align: center;
+	border-radius: 6px;
+    border: none;
+}
+
+/* Display none for all child element excent main menu as default */
+.main__items >:not(:first-child) {
+    display: none;
+    
+    width: 100%;
+
+    background-color: var(--bg-SectionBDisplay);
+    border: 4px solid var(--b-SectionBDisplay);
+
+    border-radius: var(--borderRadiusUniversal);
+}
+
+.main__item--menu {
+    height: 610px;
+}
+
+.main__item--goals {
+    height: fit-content;
+}
+.main__item--settings {
+    height: 650px;
+}   
+.main__item--inventory {
+    height: 750px;
+}
+.main__item--report {
+    height: 800px;
+}
+
+/* Maximum width of app will be 720px */
+@media (min-width: 800px) {
+    body {
+        max-width: 720px;
+    }
+}
+
+@media (max-width: 650px) {
+    body {
+        max-width: 90%;
+    }
+}
+
+
+@media (max-width: 800px) {
+    #timer h1{
+        font-size: 6em;
+    }
+}
+
+@media (max-width: 750px) {
+    #timer h1{
+        font-size: 5.5em;
+    }
+}
+
+/* Responsive to Small Window */
+@media (max-width: 720px) {
+
+    #timer h1{
+        font-size: 4.5em;
+    }
+
+    .navBar__item h3 {
+        display: none;
+    }
+
+    /* main {
+        height: 472px;
+    } */
+
+    .rightBox , .leftBox{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .rightBox .chatBox {
+        height: 80%;
+    }
+
+    .rightBox .buttonsBox {
+        height: 15%;
+    }
+
+    .leftBox .timerBox {
+        height: 35%;
+    }
+
+    .leftBox .companionBox {
+        height: 58%;
+    }
+
+
+    .timerBtngrp i {
+        font-size: 0.8em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+}
+
+@media (max-width: 600px) {
+    #timer h1{
+        font-size: 3.5em;
+    }
+}
+
+/* Responsive more smaller devices */
+@media (max-width: 325px) {
+    body {
+        max-width: 98%;
+    }
+
+    .navBar__item:not(:last-child) {
+        margin-right: 2px;
+    }
+
+    #timer h1{
+        font-size: 2em;
+    }
+}
+
+/* temporary code */
+.main__items h3 {
+    color: black;
+    font-size: 2em;
+}
+
+h5 {
+    color: black;
+}
+
+.chatBox__createGoal, .chatBox__startSession, .chatBox__break{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    border:1px solid rgba(128, 128, 128, 0.5);
+    padding: 2%;
+}
+
+.chatBox__createGoal {
+    height: 180px;
+}
+
+.chatBox__createGoal, .chatBox__startSession, .chatBox__break{
+    color: black;
+}
+
+.chatBox__createGoal form, .chatBox__startSession form, .chatBox__break form{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.chatBox__createGoal , .chatBox__startSession, .chatBox__break{
+    float: right;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background-color: rgb(240, 240, 240);
+    /* background-color: rgb(209, 209, 209); */
+    font-family: var(--ff-TimerFont);
+    font-weight: bold;
+}
+
+.chatBox__createGoal label, .chatBox__startSession label, .chatBox__break label{
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.goalFormTitle, .sessionFormTitle{
+    display: flex;
+    width: 90%;
+    height: 28.5%;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.4);
+    padding-bottom: 8px;
+}
+
+.goalFormTitle {
+    height: 24%;
+}
+
+.goalFormDuration {
+    width: 90%;
+    height: 30%;
+    display: flex;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.4);
+    padding-bottom: 10px;
+}
+
+.goalDurationH , .goalDurationM{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.goalFormTitle input , .sessionFormTitle input{
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    border-radius: 4px;
+    height: 100%;
+}
+
+.goalFormTitle input , .sessionFormTitle input{
+    font-family: var(--ff-TimerFont);
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.goalDurationH input, .goalDurationH label, .sessionFormTimer input, .sessionFormTimer label{
+    width: 60%;
+}
+
+.goalDurationH input, .goalDurationM input, .sessionFormTimer input, .breakFormTimer input{
+    height: 60%;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    border-radius: 4px;
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: bold;
+    font-family: var(--ff-TimerFont);
+}
+
+.breakFormTimer input {
+    width: 68%;
+}
+
+.goalDurationH {
+    border-right: 1px solid rgba(128, 128, 128, 0.4);
+}
+
+.goalDurationM input, .goalDurationM label{
+    width: 60%;
+}
+
+.createGoalBtngrp input, .createGoalBtngrp button, .startSessionBtnGrp input, .startSessionBtnGrp button {
+    width: 40%;
+}
+
+.createGoalBtngrp, .startSessionBtnGrp, .breakBtnGrp {
+    width: 60%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.createGoalBtngrp button, .startSessionBtnGrp button, .breakBtnGrp button {
+    color: red;
+}
+
+.createGoalBtngrp button, .createGoalBtngrp input , .startSessionBtnGrp input, .startSessionBtnGrp button , .goalRelatedSession select, .breakBtnGrp button, .breakBtnGrp input{
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    background-color: white;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.createGoalBtngrp button:hover, .createGoalBtngrp input:hover, .startSessionBtnGrp input:hover, .startSessionBtnGrp button:hover , .breakBtnGrp input:hover, .breakBtnGrp button:hover {
+    background-color: whitesmoke;
+}
+
+.chatBox__startSession{
+    height: 200px;
+}
+
+.startSessionBtnGrp {
+    height: 35%;
+}
+
+#goalFormSubmit ,#sessionFormSubmit, #breakFormSubmit{
+    font-weight: bold;
+    font-family: var(--ff-TimerFont);
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.sessionFormTitle label, .sessionFormTimer label, .goalRelatedSession label {
+    width: 32%;
+}
+
+.sessionFormTitle input, .sessionFormTimer input, .goalRelatedSession select{
+    width: 68%;
+} 
+
+.goalRelatedSession select{ 
+    height: 60%;
+}
+
+.sessionFormTimer {
+    height: 35%;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.4);
+}
+
+.goalRelatedSession {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    height: 35%;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.4);
+}
+
+.startSessionBtnGrp {
+    padding-top: 10px;
+    padding-bottom: 6px;
+}
+
+.chatBox__break {
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+}
+
+.breakFormTimer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50%;
+    width: 90%;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.4);
+}
+
+.breakBtnGrp {
+    padding-top: 5px;
+    padding-bottom: 2px;
+    height: 40%;
+}
+
+.breakBtnGrp button, .breakBtnGrp input {
+    width: 40%;
+}
+
+
+.chatBox__createGoal, .chatBox__startSession, .chatBox__break {
+    display: none;
+}
+
+.chatBox p {
+    margin: 4px 0;
+    background-color: rgb(216, 216, 216);
+    width: fit-content;
+    padding: 10px 14px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    color: black;
+    font-family: var(--ff-TimerFont);
+    float: right;
+}
+
+.sessionFormTitle {
+    height: 30%;
+    padding-top: 6px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.4);
+}
+
+
+  /* The Close Button */
+  .close {
+    color: #ffffff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  div.ui-datepicker{
+    font-size:100%;
+   }
+
+/* Popup container */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+/* The actual popup (appears on bottom) */
+.popup .popuptext {
+    visibility: hidden;
+    width: 230px;
+    background-color: var(--bg-datePicker);
+    color: var(--c-datePickerNumbers);
+    text-align: center;
+    border-radius: var(--borderRadiusUniversal);
+    padding: 8px 8px;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 1vw;
+    margin-left: -120px;
+}
+  
+#datepicker{
+    display:inline-block;
+    width: 100%;
+    margin:0 auto;
+}
+
+.ui-datepicker {
+    width: 100%;
+    height: 100%;
+    margin: 5px auto 0;
+    font: 12pt;
+    font-family:var(--ff-TimerFont);
+}
+
+.ui-datepicker table {
+    width: 100%;
+}
+
+/* date selector bar */
+.ui-datepicker-header {
+    background: rgb(93, 93, 93);
+    color: white;
+    font-family:var(--ff-TimerFont);
+    margin-bottom: 15px;
+    padding-top: 5px;
+}
+
+/* date selector text */
+.ui-datepicker-title {
+    text-align: center;
+    font-size: 15px;
+    padding-bottom:5px;
+}
+
+/*-----prev/next icons------*/
+.ui-datepicker-prev {
+    float: left;
+    cursor: pointer;
+    background-position: center -30px;
+}
+
+.ui-datepicker-next {
+    float: right;
+    cursor: pointer;
+    background-position: center 0px;
+}
+
+.ui-datepicker-prev span,
+.ui-datepicker-next span {
+  background-image: none !important;
+}
+
+.ui-datepicker-prev:before,
+.ui-datepicker-next:before {
+  font-family: FontAwesome;
+  position: relative; 
+}
+
+.ui-datepicker-prev span.ui-icon,
+.ui-datepicker-next span.ui-icon {
+    width: 0; 
+    height: 16px;
+    display: block;
+    text-indent: 0;
+    overflow: hidden;
+    background-repeat: no-repeat;
+}
+
+.ui-datepicker-prev:before {
+  content: "\f060";
+}
+
+.ui-datepicker-next:before {
+  content: "\f061";
+}
+/*-----end of prev/next icons------*/
+
+.ui-datepicker thead {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #bbb;
+}
+
+/* calendar weekday headers */
+.ui-datepicker th {
+    background-color:var(--bg-datePicker);
+    text-transform: capitalize;
+    font-size: 12pt;
+    color: white;
+}
+
+.ui-datepicker tbody td {
+    padding: 0;
+    /*border-right: 1px solid #808080;*/
+}
+
+.ui-datepicker tbody td:last-child {
+    border-right: 0px;
+}
+
+.ui-datepicker tbody tr {
+    border-bottom: 1px solid #bbb;
+}
+
+.ui-datepicker tbody tr:last-child {
+    border-bottom: 0px;
+}
+
+.ui-datepicker a {
+    text-decoration: none;
+}
+
+.ui-datepicker td span, .ui-datepicker td a {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    line-height: 100%;
+    color: black;
+}
+
+.ui-datepicker-calendar .ui-state-default {
+      background: linear-gradient(#999999, #737373);
+      color:var(--c-datePickerNumbers);
+      height:30px;
+      width:100%;
+
+}
+
+/*colour on hover*/
+.ui-datepicker-calendar .ui-state-hover {
+    background: var(--accentColor-first);
+    color: #000000;
+}
+
+/*when date is selected*/
+.ui-datepicker-calendar .ui-state-active {
+    background: var(--accentColor-first);
+    color: var(--c-datePickerNumbers);
+    border: 1px solid #000000;
+    position: relative;
+    margin: -1px;
+}
+
+/*unselectable dates*/
+.ui-datepicker-unselectable .ui-state-default {
+    background: #bfbfbf;
+    color: #000;
+    opacity: 0.65;
+    cursor:not-allowed;
+}
+.main__item--inventory .trendsBar__items {
+    border: 2px solid black;   
+}
+
+.startStop-tooltip, .skip-tooltip {
+    visibility: hidden;
+    width: max-content;
+    background-color:rgb(233, 233, 233);
+    color: black;
+    text-align: center;
+    padding: 6px;
+    border-radius: var(--borderRadiusUniversal);
+    border: 1px solid rgb(97, 97, 97);
+   
+    position: absolute;
+    z-index: 1;
+    margin-left: 58px;
+    font: var(--ff-TimerFont);
+    font-size: large;
+}
+
+#startStop:hover .startStop-tooltip {
+    visibility: visible;
+}
+
+#skip:hover .skip-tooltip {
+    visibility: visible;
+}
+
+/* Tooltip for inventory incomplete page warning */
+
+.incomplete-tooltip {
+	visibility: hidden;
+    width: max-content;
+    background-color:rgb(233, 233, 233);
+    color: black;
+    text-align: center;
+    padding: 6px;
+    border-radius: var(--borderRadiusUniversal);
+    border: 1px solid rgb(97, 97, 97);
+   
+    position: absolute;
+    z-index: 1;
+    margin-left: 58px;
+    font-size: large;
+}
+
+.inventory__warning:hover .incomplete-tooltip {
+	visibility: visible;
+}
+
+.allItems {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 1%;
+    width: 100%;
+    height: 100%;
+}
+
+.myItems, .shopItems {
+    /* border: 1px solid green; */
+    width: 96%;
+    height: 78%;
+}
+
+.shopItems {
+    display: none;
+}
+
+.myItems__feature, .shopItems__feature {
+    width: 100%;
+    height: 36%;
+    padding: 2%;
+    /* border: 1px solid red; */
+    overflow-x: scroll;
+    margin-bottom: 2%;
+}
+
+.shopItems__general, .myItems__general {
+    width: 100%;
+    margin-top: 2%;
+    height: 58%;
+    /* border: 1px solid blue; */
+    overflow-x: scroll;
+}
+
+.featureItem {
+    border: 1px solid transparent;
+    width: 38%;
+    height: 90%;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 0px 15px -8px #5decff;
+}
+
+.featureItem:first-child {
+    margin-right: 10px;
+}
+
+.featureItem:not(:first-child) {
+    margin: 0 10px;
+}
+
+.shopItem {
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    width: 28%;
+    height: 45%;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 15px;
+    box-shadow: 0px 0px 15px -8px #ff0000;
+}
+
+.featureItem:hover {
+    width: 38%;
+    height: 92%;
+    box-shadow: 0px 0px 15px -16px #5decff;
+}
+
+.myItems__feature img{
+    width: 100%;
+    height: 100%;
+    padding: 4px 6px; 
+    border-radius: 5px;
+}
+
+.shopItem img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+/* .shopItem:hover {
+    width: 28%;
+    height: 45.5%;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 15px -8px #000000;
+} */
+
+.featureTitle, .shopTitle {
+    color: rgb(124, 124, 124);
+    font-family: var(--ff-TimerFont);
+    font-weight: bold;
+    font-size: 1.25em;
+}
+
+.featureTitle span, .shopTitle span {
+    color: red;
+    font-weight: 300;
+    font-size: 0.7em;
+}
+
+.myItems__feature, .shopItems__feature  {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+} 
+
+.shopItems__general, .myItems__general {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.equippedItem {
+    border: 3px solid #2195f39b;
+    pointer-events: none;
+}
+
+.bg1 {
+    background-color: #2195f32c;
+}
+.bg2 {
+    background-color: rgba(0, 128, 0, 0.164);
+}
+
+.bg3 {
+    background-color: rgba(165, 91, 42, 0.5);
+}
+
+.bg4 {
+    background-color: #2195f33f;
+}
+
+.bg5 {
+    background-color: rgba(105, 143, 0, 0.438);
+}
+
+.bg6 {
+    background-color: rgba(135, 207, 235, 0.644);
+}
